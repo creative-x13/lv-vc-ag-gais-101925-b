@@ -1,0 +1,9 @@
+{
+  "name": "GIT-BOLT-OMNI-BASE-OK-WRKN-101925-A",
+  "description": "A friendly, professional conversational voice agent to assist customers with their insurance needs, powered by Gemini.",
+  "requestFramePermissions": [
+    "microphone",
+    "camera"
+  ],
+  "prompt": ""
+}

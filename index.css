@@ -1,0 +1,566 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;700&display=swap');
+
+/* --- DESIGN SYSTEM & GLOBAL STYLES --- */
+:root {
+    --primary-blue: #007BFF;
+    --secondary-accent: #1EE494;
+    --text-dark: #333333;
+    --text-light: #FFFFFF;
+    --bg-white: #FFFFFF;
+    --bg-light-grey: #F7F9FC;
+    --border-color: #EAECEF;
+    --problem-red: #E74C3C;
+    --solution-green: #2ECC71;
+
+
+    --font-headline: 'Poppins', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-white);
+    color: var(--text-dark);
+    line-height: 1.6;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-headline);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 3.2rem; /* 51px */
+}
+
+h2.section-title {
+    font-size: 2.5rem; /* 40px */
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+p.section-subtitle {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 3rem auto;
+    font-size: 1.1rem;
+    color: #666;
+}
+
+a {
+    color: var(--primary-blue);
+    text-decoration: none;
+}
+
+/* --- BUTTONS --- */
+.cta-button {
+    display: inline-block;
+    padding: 14px 28px;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.primary-cta {
+    background-color: var(--secondary-accent);
+    color: var(--text-dark);
+    font-weight: 700;
+}
+
+.primary-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(30, 228, 148, 0.4);
+}
+
+.secondary-cta {
+    background-color: transparent;
+    color: var(--text-dark);
+    border: 2px solid var(--border-color);
+}
+
+.secondary-cta:hover {
+    background-color: var(--bg-light-grey);
+    border-color: #ccc;
+}
+
+.large-cta {
+    font-size: 1.2rem;
+    padding: 18px 36px;
+}
+
+/* --- HERO SECTION --- */
+.hero-section {
+    padding: 5rem 0;
+    background-color: var(--bg-white);
+}
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    justify-content: center;
+}
+
+.hero-text {
+    flex: 1 1 100%;
+    max-width: 700px;
+    text-align: center;
+}
+
+.hero-text h1 {
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.hero-text h2 {
+    font-size: 1.4rem;
+    font-weight: 400;
+    font-family: var(--font-body);
+    margin-bottom: 2rem;
+    color: #555;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-text .secondary-text {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+.arrow-pointer {
+    margin-top: 2rem;
+    max-width: 40px; /* Adjusted for new arrow */
+}
+
+.arrow-pointer svg {
+    animation: pulse-arrow 2s ease-in-out infinite;
+    transform-origin: center; /* Ensure scaling is centered */
+}
+
+@keyframes pulse-arrow {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.7;
+    }
+}
+
+.app-container {
+  padding: 4px; /* Border thickness */
+  background: var(--primary-blue);
+  border-radius: 28px; /* Widget radius (24px) + padding (4px) */
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+  min-width: 408px;
+}
+
+.hero-embed {
+    margin-top: 4rem;
+    text-align: center;
+}
+
+.hero-embed iframe {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    width: 85%;
+    aspect-ratio: 700 / 450;
+    height: auto;
+}
+
+/* --- PROBLEM SECTION --- */
+.problem-section {
+    padding: 6rem 0;
+    background-color: var(--bg-light-grey);
+}
+
+.problem-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.problem-card {
+    background-color: var(--bg-white);
+    padding: 2rem;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.problem-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 1.5rem auto;
+    background-color: rgba(0, 123, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-blue);
+}
+.problem-icon svg {
+    width: 28px;
+    height: 28px;
+}
+
+.problem-card h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+/* --- SOLUTION SECTION --- */
+.solution-section {
+    padding: 6rem 0;
+}
+
+.solution-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.solution-card {
+    background-color: var(--bg-white);
+    padding: 2.5rem 2rem;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid var(--border-color);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.solution-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.solution-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 1.5rem auto;
+    background-color: rgba(30, 228, 148, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--secondary-accent);
+}
+
+.solution-icon svg {
+    width: 28px;
+    height: 28px;
+    stroke: var(--secondary-accent);
+}
+
+.solution-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+
+/* --- INDUSTRIES SECTION --- */
+.industries-section {
+    padding: 6rem 0;
+    background-color: var(--bg-light-grey);
+}
+
+.tabs-container {
+    background-color: var(--bg-white);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    overflow: hidden;
+}
+
+.tab-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background-color: #f0f2f5;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.tab-button {
+    padding: 1.25rem 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    background-color: #f0f2f5;
+    color: #666;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    border-bottom: 3px solid transparent;
+}
+
+.tab-button:hover {
+    background-color: #e9ecef;
+}
+
+.tab-button.active {
+    background-color: var(--bg-white);
+    color: var(--primary-blue);
+    border-bottom-color: var(--primary-blue);
+}
+
+.tab-content {
+    display: none;
+    padding: 3rem;
+}
+
+.tab-content.active {
+    display: block;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.industry-content-wrapper {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+}
+
+.industry-text {
+    flex: 1 1 50%;
+}
+
+.industry-text h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    font-family: var(--font-headline);
+    color: var(--text-dark);
+}
+
+.industry-text p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #555;
+}
+
+/* --- Home Services Tab Specific Styles --- */
+#home-services .industry-text,
+#electricians .industry-text,
+#hvac .industry-text,
+#plumbing .industry-text {
+    flex: none;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 2rem auto;
+}
+
+#home-services .industry-content-wrapper,
+#electricians .industry-content-wrapper,
+#hvac .industry-content-wrapper,
+#plumbing .industry-content-wrapper {
+    display: block;
+}
+
+
+.industry-content-wrapper.remodel-wrapper {
+    justify-content: center;
+}
+
+
+/* --- PRICING SECTION --- */
+.pricing-section {
+    padding: 6rem 0;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    align-items: center;
+}
+
+.pricing-card {
+    background-color: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.pricing-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.pricing-card.popular {
+    border: 2px solid var(--primary-blue);
+    transform: scale(1.05);
+    position: relative;
+}
+
+.popular-banner {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--primary-blue);
+    color: var(--text-light);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    width: 120px;
+}
+
+.pricing-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.price {
+    font-size: 3rem;
+    font-weight: 700;
+    font-family: var(--font-headline);
+    margin-bottom: 1.5rem;
+}
+
+.price span {
+    font-size: 1rem;
+    font-weight: 400;
+    font-family: var(--font-body);
+    color: #666;
+}
+
+.pricing-card ul {
+    list-style: none;
+    text-align: left;
+    margin-bottom: 2rem;
+    flex-grow: 1;
+}
+
+.pricing-card ul li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+.pricing-card ul li::before {
+    content: '✓';
+    color: var(--secondary-accent);
+    margin-right: 0.5rem;
+    font-weight: bold;
+}
+
+/* --- FINAL CTA & FOOTER --- */
+.final-cta-section {
+    background-color: #001f3f;
+    color: var(--text-light);
+    padding: 5rem 0;
+    text-align: center;
+}
+
+.final-cta-section h2 {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+}
+
+.final-cta-section p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+    opacity: 0.9;
+}
+
+.main-footer {
+    padding: 2rem 0;
+    text-align: center;
+    background-color: var(--bg-light-grey);
+    color: #888;
+    font-size: 0.9rem;
+}
+
+/* --- RESPONSIVENESS --- */
+@media (max-width: 992px) {
+    .hero-container { flex-direction: column; text-align: center; }
+    .hero-text { order: 1; }
+    .hero-text h2 { max-width: 100%; }
+    .pricing-grid { grid-template-columns: 1fr 1fr; }
+    .arrow-pointer { display: none; }
+    .industry-content-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+    .industry-text {
+        margin-bottom: 2rem;
+    }
+    .tab-buttons {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    #home-services .industry-text,
+    #electricians .industry-text,
+    #hvac .industry-text,
+    #plumbing .industry-text {
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 { font-size: 2.8rem; }
+    h2.section-title { font-size: 2rem; }
+    .hero-section { padding: 4rem 0; }
+    .app-container { min-width: 0; width: 100%; max-width: 408px; }
+    .problem-grid { grid-template-columns: 1fr; }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .tab-buttons {
+        grid-template-columns: 1fr;
+    }
+    .hero-embed { display: none; }
+}
+
+@media (min-width: 992px) {
+    .app-container {
+        background: transparent;
+        padding: 0;
+        box-shadow: none;
+        min-width: 0;
+    }
+    .remodel-wrapper .app-container {
+        width: 100%;
+    }
+    .industry-content-wrapper {
+        align-items: flex-start;
+    }
+    .industry-text {
+        flex: 1 1 40%;
+    }
+    .industry-content-wrapper .app-container {
+        flex: 1 1 60%;
+        display: flex;
+    }
+}

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berea Creative Cloud | AI Voice Agent</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <script type="importmap">
+      {
+        "imports": {
+          "lit": "https://esm.sh/lit@^3.3.0",
+          "lit/": "https://esm.sh/lit@^3.3.0/",
+          "@lit/context": "https://esm.sh/@lit/context@^1.1.5",
+          "@google/genai": "https://esm.sh/@google/genai@^1.15.0",
+          "three": "https://esm.sh/three@^0.176.0",
+          "three/": "https://esm.sh/three@^0.176.0/",
+          "jspdf": "https://esm.sh/jspdf@2.5.1"
+        }
+      }
+    </script>
+    <script type="module" src="index.tsx"></script>
+</head>
+<body>
+    <main>
+        <!-- Section 1: Hero -->
+        <section id="hero" class="hero-section">
+            <div class="container hero-container">
+                <div class="hero-text">
+                    <h1>The Ultimate Employee Who Never Sleeps.</h1>
+                    <h2>Our AI Voice Agents combine cutting-edge technology with seamless integration to transform your business operations from day one. Scroll down to try a live demo for your industry!</h2>
+                    <div class="arrow-pointer" style="transform: rotate(90deg) translateX(20px); margin-top: 3rem; margin-left: auto; margin-right: auto;">
+                        <svg width="40" height="60" viewBox="0 0 40 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                           <path d="M35 5L5 30L35 55" stroke="#1EE494" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" transform="rotate(180 20 30)"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="container hero-embed">
+                <iframe src="https://gamma.app/embed/nchsx541ycywwhq" allow="fullscreen" title="Stop Missing Calls. Start Closing Deals."></iframe>
+            </div>
+        </section>
+
+        <!-- Section 2: The Problem -->
+        <section id="problem" class="problem-section">
+            <div class="container">
+                <h2 class="section-title">Every Missed Call is a Lost Opportunity.</h2>
+                <p class="section-subtitle">You work hard and spend a fortune on ads to make your phone ring. But what happens when you're busy, on another job, or it's after hours?</p>
+                <div class="problem-grid">
+                    <div class="problem-card">
+                        <div class="problem-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.68 13.31a16 16 0 0 0 3.41 3.41l3.02-3.02c.61-.6.44-1.71-.32-2.05-1.37-.6-2.83-.87-4.31-.87-1.48 0-2.94.27-4.31.87-.76.34-.93 1.45-.32 2.05l3.02 3.02z"/><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91"/><line x1="22" y1="2" x2="16" y2="8"/><line x1="16" y1="2" x2="22" y2="8"/></svg>
+                        </div>
+                        <h3>Wasted Ad Spend</h3>
+                        <p>85% of customers who call and can't reach a business won't call back. That's money down the drain.</p>
+                    </div>
+                    <div class="problem-card">
+                        <div class="problem-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        </div>
+                        <h3>Lost After-Hours Leads</h3>
+                        <p>Your best leads don't wait for business hours. They call when it's convenient for them, ready to buy.</p>
+                    </div>
+                    <div class="problem-card">
+                        <div class="problem-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 6v6l4 2"/><path d="M22 12h-2"/><path d="M6 12H4"/><path d="m15.5 15.5 1.4 1.4M8.5 8.5 7.1 7.1"/></svg>
+                        </div>
+                        <h3>Interrupted Workflow</h3>
+                        <p>Constantly stopping work to answer basic questions or deal with sales calls kills your productivity and focus.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: The Solution -->
+        <section id="solutions" class="solution-section">
+            <div class="container">
+                <h2 class="section-title">The Ultimate Employee Who Never Sleeps.</h2>
+                 <p class="section-subtitle">Our AI Voice Agent combines cutting-edge technology with seamless integration to transform your business operations from day one.</p>
+                <div class="solution-grid">
+                    <div class="solution-card">
+                        <div class="solution-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path><path d="M12 6v6l4 2"></path><path d="M20 12h.01"></path></svg>
+                        </div>
+                        <h3>Capture & Convert Leads 24/7/365</h3>
+                        <p>While you're on a job or sleeping, our AI Voice Agent is your frontline sales champion. It engages every single caller with natural, intelligent conversation, qualifying leads, answering questions, and booking them directly into your calendar. Turn your ad spend into appointments, not voicemails.</p>
+                    </div>
+                    <div class="solution-card">
+                        <div class="solution-icon">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3h4v4h-4zM3 10h4v4H3zM17 10h4v4h-4zM10 17h4v4h-4zM7 10v4h10v-4H7zM10 7V3h4v4h-4zM3 10v4h4v-4H3zM17 10v4h4v-4h-4zM10 21v-4h4v4h-4z"></path></svg>
+                        </div>
+                        <h3>Seamless Integration with Your Workflow</h3>
+                        <p>Our AI isn't just a voice; it's your new team hub. With native integrations for HubSpot and Google Services (Calendar, Sheets), new leads and appointments are automatically synced. Plus, our lightweight widget installs in seconds on WordPress, Shopify, Wix, and any website.</p>
+                    </div>
+                    <div class="solution-card">
+                        <div class="solution-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
+                        </div>
+                        <h3>Deliver Elite Service, Dramatically Cut Costs</h3>
+                        <p>Provide an unparalleled, instant response experience that wows your customers. Free up yourself and your team from repetitive calls to focus on high-value work. Our AI agent does the work of a full-time receptionist for a tiny fraction of the cost.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Industry-Specific Solutions -->
+        <section id="industries" class="industries-section">
+            <div class="container">
+                <h2 class="section-title">An AI Expert for Your Industry</h2>
+                <p class="section-subtitle">We've trained our AI to understand the unique challenges and opportunities in key industries. Try a live demo to see how it works.</p>
+                <div class="tabs-container">
+                    <div class="tab-buttons">
+                        <button class="tab-button active" data-tab="home-services">Home Services</button>
+                        <button class="tab-button" data-tab="remodeling">Kitchen Remodeling</button>
+                        <button class="tab-button" data-tab="room-remodeling">Room Remodeling</button>
+                        <button class="tab-button" data-tab="landscaping">Landscaping</button>
+                        <button class="tab-button" data-tab="water-damage">Water Damage</button>
+                        <button class="tab-button" data-tab="real-estate">Real Estate</button>
+                        <button class="tab-button" data-tab="insurance">Insurance</button>
+                        <button class="tab-button" data-tab="sales-teams">Sales Teams</button>
+                        <button class="tab-button" data-tab="electricians">Electricians</button>
+                        <button class="tab-button" data-tab="hvac">HVAC</button>
+                        <button class="tab-button" data-tab="plumbing">Plumbing</button>
+                    </div>
+                    <div class="tab-content active" id="home-services">
+                        <div class="industry-text">
+                            <h3>For General Contractors, Plumbers, Electricians & More</h3>
+                            <p>This AI is trained to act as your frontline receptionist. It can answer questions about your services, qualify new leads, and book on-site estimates directly into your calendar, ensuring you never miss a high-value job again.</p>
+                        </div>
+                         <div class="industry-content-wrapper">
+                            <div class="app-container">
+                                <gdm-live-audio
+                                    enable-troubleshoot="true"
+                                    agentName="Precision Builders AI"
+                                    placeholder-title="Contractor Assistant"
+                                    placeholder-description="Ask about kitchen remodels, additions, or get a free estimate."
+                                    system-instruction="You are a friendly and professional virtual assistant for &quot;Precision Builders,&quot; a trusted general contracting company. Your primary goals are: 1. Greet potential customers warmly. In your very first response, ask for their name to personalize the conversation. For example: 'I can certainly help with that. First, who do I have the pleasure of speaking with today?'. Use their name when you talk to them. 2. Answer initial questions about our services (kitchen/bathroom remodels, home additions, basement finishing) for our service area (the greater metropolitan area). 3. Gather contact information (name, email, phone number) to send them project details and follow up. When asking, explain why you need it, for example: 'So I can send you a confirmation and some helpful information, what's your email address?'. Use the `capture_lead` function internally, but do not mention the words 'capture lead' to the customer. 4. Schedule a free, no-obligation on-site estimate. For this, you must collect their name, email, preferred date, and time before calling the `schedule_appointment` function. 5. Maintain a helpful, confident, and efficient tone. 6. If the client wants a summary, let them know you can generate a 'Project Summary' report for them after the conversation. Conversation Flow: - Acknowledge their request positively, using their name. - Ask for their email to get started. Example: 'Thanks, [Name]! To get started, could I get your email address as well?' - Once you have their contact info, use `capture_lead` internally. - Then, offer to schedule an on-site estimate. Example: 'Thanks, [Name]. The best next step is to schedule a free on-site estimate with one of our project managers. What day and time works best for you?' - Always confirm the details before calling `schedule_appointment`. - After a successful booking, confirm what happens next: 'Excellent! I've scheduled your estimate. You'll receive an email confirmation shortly.' Do not provide pricing or timelines; state that a project manager will cover this during the on-site estimate."
+                                    report-instruction="You are a project manager for 'Precision Builders'. Based on the following conversation transcript, generate a concise and professional Project Summary for the client. The summary should be well-structured with clear headings. It must include: 1. **Client Information**: Name and email. 2. **Project Scope**: A clear description of the work the client is interested in (e.g., Kitchen Remodel, Basement Finishing). 3. **Key Discussion Points**: A bulleted list of important details mentioned, such as specific materials, desired features, or concerns. 4. **Scheduled Appointment**: The date and time of the on-site estimate. 5. **Next Steps**: A brief statement about what the client can expect during the estimate. Format the output as clean Markdown.">
+                                </gdm-live-audio>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-content" id="remodeling">
+                         <div class="industry-content-wrapper remodel-wrapper">
+                            <div class="app-container">
+                                <gdm-remodel-widget
+                                    agentName="Kitchen Remodeling AI"
+                                    placeholder-title="Design Assistant"
+                                    placeholder-description="Upload a photo of your kitchen to start a design session."
+                                ></gdm-remodel-widget>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="tab-content" id="room-remodeling">
+                         <div class="industry-content-wrapper remodel-wrapper">
+                            <div class="app-container">
+                                <gdm-room-remodel-widget
+                                    agentName="Room Remodeling AI"
+                                    placeholder-title="Interior Design AI"
+                                    placeholder-description="Upload a photo of any room to start a design session."
+                                ></gdm-room-remodel-widget>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-content" id="landscaping">
+                         <div class="industry-content-wrapper remodel-wrapper">
+                            <div class="app-container">
+                                <gdm-landscaping-widget
+                                    agentName="Landscape Design AI"
+                                    placeholder-title="Landscape Designer"
+                                    placeholder-description="Upload a photo of your yard to start designing."
+                                ></gdm-landscaping-widget>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-content" id="water-damage">
+                        <div class="industry-content-wrapper remodel-wrapper">
+                           <div class="app-container">
+                               <gdm-water-damage-widget
+                                   agentName="Restoration AI"
+                                   placeholder-title="Restoration Specialist"
+                                   placeholder-description="Upload a photo of the water damage to see it restored."
+                               ></gdm-water-damage-widget>
+                           </div>
+                       </div>
+                   </div>
+                    <div class="tab-content" id="real-estate">
+                        <div class="industry-content-wrapper">
+                            <div class="industry-text">
+                                <h3>For Real Estate Agents & Brokers</h3>
+                                <p>This AI acts as your personal screener, pre-qualifying buyers and sellers 24/7. It schedules calls and property viewings with only the most serious prospects, freeing you to close deals.</p>
+                            </div>
+                            <div class="app-container">
+                                <gdm-live-audio
+                                    agentName="Realty AI"
+                                    placeholder-title="Agent Assistant"
+                                    placeholder-description="Ask about property listings, home values, or schedule a consultation."
+                                    system-instruction="You are an advanced virtual business assistant for a real estate agency. Your goals are to: 1. Greet visitors pleasantly. In your first response, ask for their name to personalize the conversation, and continue to use their name. 2. Listen for their interest in buying or selling property. 3. Gather their contact information (name and email) so you can send them relevant listings or market reports. When asking, explain the benefit to them, for example: 'So I can send you some property details, may I have your email address?'. Use the `capture_lead` function internally, but never use the words 'capture a lead'. 4. If the visitor wants to schedule an appointment or viewing, first collect their name, email, preferred date and time, then call the `schedule_appointment` function. 5. Always confirm successful bookings and let them know an email confirmation is on its way. 6. If you’re missing info, politely ask for it. 7. Use a helpful, friendly, and efficient tone. 8. If a client requests a written summary, inform them you can create a 'Client Inquiry Brief' by clicking the 'Generate Report' button."
+                                    report-instruction="You are an administrative assistant for a busy real estate agency. Your task is to summarize the following client conversation into a 'Client Inquiry Brief' for internal use. The brief should be easy to scan. It must include: 1. **Client Details**: Name and Email. 2. **Area of Interest**: Clearly state whether it's 'Buying' or 'Selling'. 3. **Inquiry Summary**: A few sentences describing what the client is looking for (e.g., 'Seeking a 3-bedroom home in the downtown area', 'Wants a market analysis for their current property'). 4. **Appointment Details**: List the scheduled date and time for their consultation or viewing. 5. **Urgency/Notes**: Mention any specific timelines or important notes from the conversation. Format the output as clean Markdown with clear headings.">
+                                </gdm-live-audio>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-content" id="insurance">
+                        <div class="industry-content-wrapper">
+                            <div class="industry-text">
+                                <h3>For Insurance Agencies & Brokers</h3>
+                                <p>This AI provides instant quotes and policy information to potential clients. It gathers necessary details for auto, home, or life insurance and schedules follow-up calls with licensed agents to finalize the policies.</p>
+                            </div>
+                             <div class="app-container">
+                                <gdm-live-audio
+                                    agentName="SecureSure AI"
+                                    placeholder-title="Insurance Assistant"
+                                    placeholder-description="Ask for an auto, home, or life insurance quote."
+                                    system-instruction="You are a helpful and efficient virtual assistant for the 'SecureSure' insurance agency. Your purpose is to assist potential clients. Your goals are: 1. Greet callers professionally. In your very first response, ask for their name. Use it throughout the conversation. 2. Determine what type of insurance they are interested in (e.g., auto, home, life). 3. Gather their name and email address to provide them with an accurate quote. Explain why you need the information, e.g., 'To email you a detailed quote, could I get your email address?'. Do not say 'capture lead', but use the `capture_lead` function internally. 4. If they wish to speak with a licensed agent, schedule a callback by collecting their preferred date and time and using the `schedule_appointment` function. 5. Always confirm appointments and let them know an agent will call them. 6. Be empathetic, clear, and professional. 7. If they ask for a summary, let them know you can generate a 'Policy Inquiry Summary' for them."
+                                    report-instruction="You are an administrative assistant at an insurance agency. Condense the following conversation into a 'Policy Inquiry Summary' for an agent's review. The summary must be clear and concise. It should include: 1. **Client Information**: Name and Email. 2. **Policy of Interest**: Specify the type of insurance (e.g., Auto, Home, Life, Bundle). 3. **Summary of Needs**: Briefly describe the client's request or key details they provided (e.g., 'Wants a quote for a 2023 Honda Civic', 'Needs homeowner's insurance for a new property'). 4. **Scheduled Callback**: The date and time the client is expecting a call from an agent. 5. **Next Steps**: Note that an agent needs to follow up to provide a formal quote and finalize the policy. Format the output as clean Markdown.">
+                                </gdm-live-audio>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-content" id="sales-teams">
+                        <div class="industry-content-wrapper">
+                            <div class="industry-text">
+                                <h3>For B2B Sales & Marketing Teams</h3>
+                                <p>Engage inbound leads the second they show interest on your website. This AI qualifies prospects based on your criteria and books demos directly onto your sales team's calendars, dramatically increasing speed-to-lead and conversion rates.</p>
+                            </div>
+                            <div class="app-container">
+                                <gdm-live-audio
+                                    agentName="Closer AI"
+                                    placeholder-title="Sales Assistant"
+                                    placeholder-description="Ask about our product, pricing, or book a demo with our team."
+                                    system-instruction="You are a virtual sales development representative for a B2B software company. Your only goal is to schedule a product demo. Your conversation flow should be: 1. Greet the user with energy and ask what they are interested in. 2. In your next response, ask for their name and business email. Explain that you need it to set up the demo and send a calendar invite. For example: 'I'd be happy to set up a demo for you. First, what's your name and business email?'. 3. Once you have their name and email, use the `capture_lead` function internally. Never say you are 'capturing a lead'. 4. After getting their contact info, use their name and offer to schedule a 30-minute demo call. Example: 'Thanks, [Name]! What day and time works best for you for a 30-minute demo?'. Then use the `schedule_appointment` function. 5. If a prospect asks for a written summary of the call, tell them you can generate a 'Sales Qualification Report' by clicking the 'Generate Report' button. Be friendly, energetic, and concise."
+                                    report-instruction="You are a sales operations analyst. Your job is to create a 'Sales Qualification Report' from the following transcript of a conversation with a prospect. The report should be structured for a quick review by an Account Executive before a demo. It must contain: 1. **Prospect Information**: Name and Email. 2. **Key Pain Points**: What business problem or need did the prospect mention? (Use a bulleted list). 3. **Scheduled Demo**: The confirmed date and time for the product demonstration. 4. **Action Item**: State clearly: 'AE to conduct discovery and present product demo.' Format the output as clean Markdown.">
+                                </gdm-live-audio>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="tab-content" id="electricians">
+                        <div class="industry-text">
+                            <h3>For Licensed Electrical Contractors</h3>
+                            <p>This AI is your dedicated electrical service dispatcher. It answers questions about panel upgrades, wiring, and EV chargers, qualifies clients, and books on-site estimates, ensuring every service call is captured and scheduled safely.</p>
+                        </div>
+                         <div class="industry-content-wrapper">
+                            <div class="app-container">
+                                <gdm-live-audio
+                                    enable-troubleshoot="true"
+                                    agentName="Sparky AI"
+                                    placeholder-title="Master Electrician AI"
+                                    placeholder-description="Ask about panel upgrades, wiring issues, or get a free estimate."
+                                    system-instruction="You are a friendly and professional virtual assistant for 'Sparky Electrical Services,' a licensed and insured electrical contracting company. Your primary goals are: 1. Greet potential customers warmly. In your very first response, ask for their name to personalize the conversation. For example: 'I can certainly help with that. First, who do I have the pleasure of speaking with today?'. Use their name when you talk to them. 2. Answer initial questions about our services (electrical panel upgrades, outlet and switch repair, lighting installation, EV charger installation, and home wiring inspections) for our service area (the greater metropolitan area). 3. You are NOT a licensed electrician. For any diagnostic questions, state that a professional needs to assess it on-site for safety. DO NOT provide DIY instructions. 4. Gather contact information (name, email, phone number) to send them project details and follow up. When asking, explain why you need it, for example: 'So I can send you a confirmation and our license information, what's your email address?'. Use the `capture_lead` function internally, but do not mention the words 'capture lead' to the customer. 5. Schedule a free, no-obligation on-site estimate. For this, you must collect their name, email, preferred date, and time before calling the `schedule_appointment` function. 6. Maintain a helpful, confident, and efficient tone that emphasizes safety and professionalism. 7. If the client wants a summary, let them know you can generate a 'Service Call Summary' for them after the conversation. Conversation Flow: - Acknowledge their request positively, using their name. - Ask for their email to get started. Example: 'Thanks, [Name]! To get started, could I get your email address as well?' - Once you have their contact info, use `capture_lead` internally. - Then, offer to schedule an on-site estimate. Example: 'Thanks, [Name]. For electrical work, the safest and most accurate next step is to schedule a free on-site estimate with one of our licensed electricians. What day and time works best for you?' - Always confirm the details before calling `schedule_appointment`. - After a successful booking, confirm what happens next: 'Excellent! I've scheduled your estimate. You'll receive an email confirmation shortly with details about your appointment.'"
+                                    report-instruction="You are a master electrician reviewing an incoming service request. Based on the following conversation transcript, generate a concise and professional 'Service Call Summary' for the dispatch team. The summary should be well-structured with clear headings. It must include: 1. **Client Information**: Name and email. 2. **Reported Issue / Service Request**: A clear description of the electrical work the client is interested in (e.g., Outlet not working, Panel upgrade, EV Charger Installation). 3. **Key Discussion Points**: A bulleted list of important details mentioned, such as symptoms (e.g., 'smells like burning'), location of the issue, or specific requests. 4. **Scheduled Appointment**: The date and time of the on-site estimate. 5. **Next Steps**: A brief statement about what the electrician should be prepared for during the estimate. Format the output as clean Markdown.">
+                                </gdm-live-audio>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-content" id="hvac">
+                        <div class="industry-text">
+                            <h3>For HVAC Contractors</h3>
+                            <p>This AI is your 24/7 dispatcher for heating and cooling services. It answers questions about AC repairs, furnace installations, and seasonal tune-ups, then books service calls directly with homeowners, ensuring you capture every lead, day or night.</p>
+                        </div>
+                         <div class="industry-content-wrapper">
+                            <div class="app-container">
+                                <gdm-live-audio
+                                    enable-troubleshoot="true"
+                                    agentName="Comfort Pro AI"
+                                    placeholder-title="HVAC Assistant"
+                                    placeholder-description="Ask about AC repair, furnace installation, or book a tune-up."
+                                    system-instruction="You are a friendly and professional virtual assistant for 'Comfort Pro HVAC,' a certified and reliable heating and cooling company. Your primary goals are: 1. Greet potential customers warmly. In your very first response, ask for their name to personalize the conversation. For example: 'I can certainly help with that. First, who do I have the pleasure of speaking with today?'. Use their name when you talk to them. 2. Answer initial questions about our services (AC repair and installation, furnace repair and installation, seasonal tune-ups, and duct cleaning) for our service area (the greater metropolitan area). 3. You are NOT a certified HVAC technician. For any diagnostic questions (e.g., 'why is my AC leaking?'), state that a professional needs to assess it on-site for an accurate diagnosis. DO NOT provide DIY instructions. 4. Gather contact information (name, email, phone number) to send them appointment details and follow up. When asking, explain why you need it, for example: 'So I can send you a confirmation and our service guarantee, what's your email address?'. Use the `capture_lead` function internally, but do not mention the words 'capture lead' to the customer. 5. Schedule a free, no-obligation on-site estimate or service call. For this, you must collect their name, email, preferred date, and time before calling the `schedule_appointment` function. 6. Maintain a helpful, confident, and efficient tone that emphasizes reliability and customer comfort. 7. If the client wants a summary, let them know you can generate a 'Service Order Summary' for them after the conversation. Conversation Flow: - Acknowledge their request positively, using their name. - Ask for their email to get started. Example: 'Thanks, [Name]! To get started, could I get your email address as well?' - Once you have their contact info, use `capture_lead` internally. - Then, offer to schedule an on-site visit. Example: 'Thanks, [Name]. To get this sorted out for you, the best next step is to schedule a visit from one of our certified technicians. What day and time works best for you?' - Always confirm the details before calling `schedule_appointment`. - After a successful booking, confirm what happens next: 'Excellent! I've scheduled your service call. You'll receive an email confirmation shortly with details about your appointment.'"
+                                    report-instruction="You are a service manager for 'Comfort Pro HVAC'. Based on the following conversation transcript, generate a concise and professional 'Service Order Summary' for the dispatch team and technician. The summary should be well-structured with clear headings. It must include: 1. **Client Information**: Name and email. 2. **Reported Issue / Service Request**: A clear description of the HVAC issue or service needed (e.g., AC not cooling, Furnace tune-up, New furnace quote). 3. **Key Discussion Points**: A bulleted list of important details mentioned, such as symptoms (e.g., 'loud banging noise', 'unit is leaking water'), age of the unit, or specific requests. 4. **Scheduled Appointment**: The date and time of the on-site service call. 5. **Next Steps**: A brief statement about what the technician should be prepared to diagnose or discuss during the visit. Format the output as clean Markdown.">
+                                </gdm-live-audio>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="tab-content" id="plumbing">
+                        <div class="industry-text">
+                            <h3>For Plumbing Contractors</h3>
+                            <p>This AI is your 24/7 dispatcher for all plumbing needs. It answers questions about leaks, water heaters, and drain cleaning, then books service calls directly, ensuring you never miss an emergency or a potential customer.</p>
+                        </div>
+                         <div class="industry-content-wrapper">
+                            <div class="app-container">
+                                <gdm-live-audio
+                                    enable-troubleshoot="true"
+                                    agentName="HydroPro AI"
+                                    placeholder-title="Plumbing Assistant"
+                                    placeholder-description="Ask about leaky faucets, water heaters, or book a service call."
+                                    system-instruction="You are a friendly and professional virtual assistant for 'HydroPro Plumbing,' a licensed and insured plumbing company. Your primary goals are: 1. Greet potential customers warmly. In your very first response, ask for their name to personalize the conversation. For example: 'I can certainly help with that. First, who do I have the pleasure of speaking with today?'. Use their name when you talk to them. 2. Answer initial questions about our services (leak repair, drain cleaning, water heater installation/repair, sump pump services, and emergency plumbing) for our service area (the greater metropolitan area). 3. You are NOT a licensed plumber. For any diagnostic questions (e.g., 'why is my toilet making a gurgling sound?'), state that a professional needs to assess it on-site for an accurate diagnosis and to prevent water damage. DO NOT provide DIY instructions. 4. Gather contact information (name, email, phone number) to send them appointment details and follow up. When asking, explain why you need it, for example: 'So I can send you a confirmation and our service guarantee, what's your email address?'. Use the `capture_lead` function internally, but do not mention the words 'capture lead' to the customer. 5. Schedule a free, no-obligation on-site estimate or service call. For this, you must collect their name, email, preferred date, and time before calling the `schedule_appointment` function. 6. Maintain a helpful, confident, and efficient tone that emphasizes reliability and professionalism. 7. If the client wants a summary, let them know you can generate a 'Work Order Summary' for them after the conversation. Conversation Flow: - Acknowledge their request positively, using their name. - Ask for their email to get started. Example: 'Thanks, [Name]! To get started, could I get your email address as well?' - Once you have their contact info, use `capture_lead` internally. - Then, offer to schedule an on-site visit. Example: 'Thanks, [Name]. To get this resolved for you quickly, the best next step is to schedule a visit from one of our licensed plumbers. What day and time works best for you?' - Always confirm the details before calling `schedule_appointment`. - After a successful booking, confirm what happens next: 'Excellent! I've scheduled your service call. You'll receive an email confirmation shortly with details about your appointment.'"
+                                    report-instruction="You are a master plumber reviewing an incoming service request. Based on the following conversation transcript, generate a concise and professional 'Work Order Summary' for the dispatch team and technician. The summary should be well-structured with clear headings. It must include: 1. **Client Information**: Name and email. 2. **Reported Issue / Service Request**: A clear description of the plumbing issue or service needed (e.g., Leaky faucet, Clogged drain, Water heater replacement quote). 3. **Key Discussion Points**: A bulleted list of important details mentioned, such as the location of the issue (e.g., 'basement', 'kitchen sink'), symptoms ('no hot water', 'slow drain'), or specific requests. 4. **Scheduled Appointment**: The date and time of the on-site service call. 5. **Next Steps**: A brief statement about what the plumber should be prepared to diagnose or discuss during the visit. Format the output as clean Markdown.">
+                                </gdm-live-audio>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Pricing -->
+        <section id="pricing" class="pricing-section">
+            <div class="container">
+                <h2 class="section-title">Limited-Time Beta Offer: Get In on the Ground Floor</h2>
+                <p class="section-subtitle">We're launching and want our first partners to have an incredible advantage. These prices are for early adopters only.</p>
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <h3>Free Forever</h3>
+                        <p class="price">Free</p>
+                        <ul>
+                            <li>Unlimited Minutes</li>
+                            <li>Bring Your Own Google Gemini Key (BYOK)</li>
+                        </ul>
+                    </div>
+                    <div class="pricing-card popular">
+                        <div class="popular-banner">Best Value</div>
+                        <h3>Pro Unlimited</h3>
+                        <p class="price">$9 <span>/ Month</span></p>
+                        <ul>
+                            <li>Unlimited Minutes</li>
+                            <li>Bring Your Own Google Gemini Key (BYOK)</li>
+                            <li>Remove Our Branding</li>
+                            <li>Custom Company Knowledge Base</li>
+                        </ul>
+                    </div>
+                    <div class="pricing-card">
+                        <h3>Business 100</h3>
+                        <p class="price">$25 <span>/ Month</span></p>
+                        <ul>
+                            <li>100 AI Minutes Included</li>
+                            <li>Rollover Minutes</li>
+                            <li>All Pro Features</li>
+                        </ul>
+                    </div>
+                    <div class="pricing-card">
+                        <h3>Business 1000</h3>
+                        <p class="price">$97 <span>/ Month</span></p>
+                        <ul>
+                            <li>1000 AI Minutes Included</li>
+                            <li>Rollover Minutes</li>
+                            <li>All Pro Features</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section 6: Final CTA -->
+        <section id="final-cta" class="final-cta-section">
+            <div class="container">
+                <h2>Ready to Experience the Future?</h2>
+                <p>Your competitors' phones are ringing to voicemail right now. Yours doesn't have to. Set up your 24/7 AI Voice Agent in under 5 minutes.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 Berea Creative Cloud. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Tab functionality
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const tabId = button.dataset.tab;
+
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+
+                    tabContents.forEach(content => {
+                        if (content.id === tabId) {
+                            content.classList.add('active');
+                        } else {
+                            content.classList.remove('active');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
