@@ -1,0 +1,445 @@
+COMPREHENSIVE SYSTEM INSTRUCTIONS & PROJECT REFERENCE DOCUMENT (PRD)
+PROJECT OVERVIEW
+Project Name: Berea Creative Cloud - Multi-Industry AI Voice Agent Platform
+
+Description: A sophisticated multi-modal AI voice agent platform built with Lit Elements, featuring real-time voice conversation capabilities powered by Google Gemini Live API, visual AI design tools for various industries (kitchen remodeling, room design, landscaping, water damage restoration), and business automation features (lead capture, appointment scheduling, report generation).
+
+Technology Stack:
+
+Frontend Framework: Lit Elements (Web Components)
+AI Provider: Google Gemini API (multiple model variants)
+Database: Bolt Database PostgreSQL
+Build Tool: Vite
+Language: TypeScript
+Additional Libraries: Three.js (3D visualizations), jsPDF (PDF generation)
+CRITICAL RULES - ABSOLUTE COMPLIANCE REQUIRED
+RULE 1: GEMINI API CORE SETTINGS PROTECTION
+SEVERITY: CRITICAL - VIOLATION WILL CAUSE CATASTROPHIC FAILURE
+
+The following Gemini API connection configuration patterns MUST REMAIN INTACT:
+
+
+// PROTECTED PATTERN - DO NOT MODIFY
+this.client = new GoogleGenAI({apiKey: process.env.API_KEY});
+
+// PROTECTED PATTERN - DO NOT MODIFY
+this.sessionPromise = this.client.live.connect({
+  model: '[MODEL_NAME]',  // Can be updated ONLY with explicit user approval
+  callbacks: {
+    onopen: () => {},
+    onmessage: async (message: LiveServerMessage) => { /* handler logic */ },
+    onerror: (e: ErrorEvent) => { this.error = e.message; },
+    onclose: (e: CloseEvent) => {},
+  },
+  config: {
+    responseModalities: [Modality.AUDIO],
+    speechConfig: {
+      voiceConfig: {prebuiltVoiceConfig: {voiceName: 'Zephyr'}},
+    },
+    systemInstruction: instruction,
+    inputAudioTranscription: {},
+    outputAudioTranscription: {},
+    tools: [{functionDeclarations: tools}],
+  },
+});
+What CAN Be Changed:
+
+System instruction prompts (systemInstruction content)
+Tool/function declarations
+Voice name selection
+Response handling logic within callbacks
+What MUST NEVER Be Changed Without Explicit User Approval:
+
+API initialization pattern
+Connection structure
+Callback architecture
+Audio context configuration (16000Hz input, 24000Hz output)
+Message handling flow
+Error handling structure
+RULE 2: LIT ELEMENTS REQUIREMENT FOR GEMINI LIVE VOICE API
+SEVERITY: CRITICAL - VIOLATION WILL CAUSE CATASTROPHIC FAILURE
+
+ALL components related to Gemini Live Voice API operations MUST use Lit Elements.
+
+NEVER convert or suggest converting to React for:
+
+gdm-live-audio component
+gdm-remodel-widget component
+gdm-room-remodel-widget component
+gdm-landscaping-widget component
+gdm-water-damage-widget component
+gdm-live-audio-visuals component
+Any component that handles real-time audio streaming
+Any component that uses Web Audio API
+Any component that manages Gemini Live sessions
+Reason: The existing architecture relies on Lit Element lifecycle methods, property decorators, and state management patterns that are specifically designed for Web Components. React conversion would break:
+
+Real-time audio processing pipelines
+Session management
+State synchronization
+Audio context handling
+RULE 3: LLM MODEL NAME MANAGEMENT
+SEVERITY: HIGH - REQUIRES USER CONSENT
+
+Current Model Names in Use:
+
+gemini-2.5-flash-native-audio-preview-09-2025 - Voice conversations
+gemini-2.5-flash-preview-tts - Text-to-speech generation
+gemini-2.5-flash-image - Image generation/editing
+gemini-2.5-flash - General text processing
+Rules:
+
+NEVER automatically update model names based on assumed current information
+NEVER assume knowledge of the latest model versions
+DO NOT change model names without explicit user confirmation
+If a model name appears outdated, ASK the user: "I notice the model '[MODEL_NAME]' is in use. Would you like me to verify or update to a newer version? Please confirm the correct model name."
+Document all model name changes with clear comments explaining why the change was made
+Proper Workflow for Model Updates:
+
+Identify where model name needs updating
+Ask user for confirmation of correct model name
+Wait for explicit approval
+Make the change with documentation
+Verify the change works in all affected components
+PROJECT ARCHITECTURE
+Component Structure
+Main Custom Elements (Lit Elements):
+
+gdm-live-audio - Full-featured voice agent with chat and troubleshoot modes
+gdm-remodel-widget - Kitchen remodeling with image generation
+gdm-room-remodel-widget - Interior room design
+gdm-landscaping-widget - Landscape design tool
+gdm-water-damage-widget - Water damage restoration visualization
+gdm-live-audio-visuals - Real-time audio visualization component
+File Organization
+
+project/
+├── index.html              # Main landing page with industry demos
+├── index.tsx               # All Lit Element component definitions
+├── visual.ts               # Audio visualization component
+├── visual-3d.ts            # 3D visualization component
+├── utils.ts                # Audio encoding/decoding utilities
+├── analyser.ts             # Audio analysis utilities
+├── vite.config.ts          # Build configuration
+├── .env                    # Environment variables (Bolt Database config)
+└── supabase/
+    └── migrations/         # Database schema migrations
+DATABASE SCHEMA (Bolt Database)
+Tables Overview
+user_profiles - User account information
+api_keys - Encrypted API keys for services
+widget_settings - Widget configuration per user
+conversation_sessions - Chat session tracking
+conversation_messages - Message history
+leads - Captured lead information
+appointments - Scheduled appointments
+generated_images - AI-generated image metadata
+design_projects - Design project tracking
+image_versions - Design iteration history
+image_analytics - Usage metrics
+Important: All tables have Row Level Security (RLS) enabled. Users can only access their own data.
+
+AUDIO PROCESSING ARCHITECTURE
+Audio Context Configuration
+Input Context: 16000Hz sample rate (required by Gemini)
+Output Context: 24000Hz sample rate (Gemini output format)
+Processing: ScriptProcessorNode with 4096 buffer size
+Format: PCM16 encoding for transmission
+Audio Flow Pattern
+
+Microphone 
+  → MediaStream 
+  → AudioContext (16kHz) 
+  → ScriptProcessorNode 
+  → Float32Array 
+  → Int16Array (PCM16) 
+  → Base64 encoding 
+  → Gemini API
+
+Gemini API 
+  → Base64 encoded PCM16 
+  → Decode to Uint8Array 
+  → Int16Array 
+  → AudioBuffer 
+  → AudioBufferSourceNode 
+  → Output (24kHz)
+NEVER modify this audio processing chain without understanding the complete flow.
+
+FUNCTION DECLARATIONS (TOOL CALLING)
+The system uses Gemini function calling for business automation:
+
+Standard Functions Across Components
+capture_lead
+
+Parameters: name (string), email (string), phone (optional string)
+Purpose: Log customer contact information
+schedule_appointment
+
+Parameters: name (string), email (string), date (string), time (string)
+Purpose: Book appointments directly into calendar
+generate_[TYPE]_design
+
+Parameters: description (string)
+Purpose: Trigger AI image generation for design tools
+Types: kitchen_design, room_design, landscape_design, restoration_design
+SYSTEM INSTRUCTION PATTERNS
+Best Practices for Prompt Engineering
+General Structure:
+
+Define the AI's role and company context
+Specify primary goals (usually 4-7 clear objectives)
+Provide conversational flow guidelines
+Include function calling instructions
+Define tone and communication style
+Specify what to do/not do
+Example Pattern:
+
+
+You are a [role] for [company name], a [description].
+
+Your primary goals are:
+1. [Goal 1 with specific instruction]
+2. [Goal 2 with specific instruction]
+3. [Goal 3 with specific instruction]
+
+Conversation Flow:
+- [Step-by-step flow]
+- [Edge case handling]
+
+Function Usage:
+- [When to use functions]
+- [What NOT to mention to users]
+
+Tone: [Friendly/Professional/etc.]
+RESPONSIVE DESIGN PATTERNS
+Breakpoint Strategy
+Mobile: < 992px width
+Desktop/Widescreen: ≥ 992px width
+Implementation Pattern
+
+@state() private isWidescreen = window.innerWidth >= 992;
+
+connectedCallback() {
+  this.resizeObserver = new ResizeObserver(() => {
+    const isWidescreenNow = window.innerWidth >= 992;
+    if (isWidescreenNow !== this.isWidescreen) {
+      this.isWidescreen = isWidescreenNow;
+    }
+  });
+  this.resizeObserver.observe(this as unknown as Element);
+}
+STATE MANAGEMENT PATTERNS
+Lit Element State Decorators
+
+@state() private isRecording = false;        // Internal reactive state
+@property({type: String}) agentName = '';   // Public property (HTML attribute)
+@query('#element-id') private element: HTMLElement;  // DOM query
+Transcription State Management
+
+// Current partial transcriptions (live updates)
+@state() private currentInputTranscription = '';
+@state() private currentOutputTranscription = '';
+
+// Complete history (on turn completion)
+@state() private transcriptionHistory: TranscriptionHistory[] = [];
+
+// Control flag
+private outputTranscriptionComplete = false;
+IMAGE GENERATION WORKFLOW
+Process Flow for Design Widgets
+User uploads original image (file upload or camera)
+Image converted to base64 data URL
+User initiates voice conversation about desired changes
+AI determines appropriate function call: generate_[type]_design
+Function handler processes with Gemini image model
+Generated image returned as base64 or URL
+Image displayed alongside original
+History maintained for iteration tracking
+Optional: Store to Bolt Database with metadata
+Key Pattern:
+
+
+private async handleGenerate[Type]Design(description: string) {
+  this.isRemodeling = true;
+  // Call Gemini image generation API
+  // Update state with new image
+  // Add to history
+  this.isRemodeling = false;
+}
+ERROR HANDLING STANDARDS
+Pattern to Follow
+
+try {
+  // Operation
+} catch (err) {
+  this.error = `User-friendly message: ${err.message}`;
+  console.error('Detailed error for debugging:', err);
+  // Cleanup state if necessary
+}
+Common Error Scenarios
+Microphone permission denied
+API key invalid/missing
+Network connectivity issues
+Audio context initialization failures
+Session connection failures
+DEVELOPMENT WORKFLOW GUIDELINES
+When Adding New Features
+Determine Component Type
+
+Voice interaction? → Must use Lit Elements
+Pure UI? → Lit Elements preferred for consistency
+Integration? → Check existing patterns
+Check API Usage
+
+Does it use Gemini Live API? → Follow critical rules
+Does it need function calling? → Define proper tool declarations
+Does it need database? → Use Bolt Database with RLS
+State Management
+
+Use @state() for internal reactive properties
+Use @property() for public HTML attributes
+Use @query() for DOM element references
+Styling
+
+Use CSS custom properties (CSS variables) for theming
+Follow existing design system patterns
+Maintain responsive breakpoints
+Testing Considerations
+
+Test microphone permissions flow
+Test error states
+Test responsive layouts
+Test function calling integration
+When Modifying Existing Components
+Identify Component Type
+
+Is it a voice/audio component? → Extra caution with audio pipeline
+Is it using Gemini Live API? → Review critical rules
+Check Dependencies
+
+What other components depend on this?
+Are there shared utilities being used?
+Does the database schema need updates?
+Preserve Patterns
+
+Don't change fundamental architecture
+Maintain existing state management patterns
+Keep audio processing chains intact
+Document Changes
+
+Add comments explaining why changes were made
+Update system instructions if prompt logic changes
+Note any model name updates
+Bolt Database INTEGRATION GUIDELINES
+Environment Variables
+
+VITE_Bolt Database_URL=[your-project-url]
+VITE_Bolt Database_ANON_KEY=[your-anon-key]
+Usage Pattern
+
+import { createClient } from '@supabase/Bolt Database-js'
+
+const Bolt Database = createClient(
+  import.meta.env.VITE_Bolt Database_URL,
+  import.meta.env.VITE_Bolt Database_ANON_KEY
+)
+
+// Example: Insert lead
+const { data, error } = await Bolt Database
+  .from('leads')
+  .insert({ name, email, phone, widget_type })
+Security Considerations
+All tables use Row Level Security (RLS)
+Anonymous users can generate images but not save long-term
+Authenticated users can only access their own data
+API keys are stored encrypted
+TESTING & DEBUGGING CHECKLIST
+Before Deployment
+All model names verified with user
+Gemini API connection patterns intact
+Audio contexts properly configured
+Microphone permissions handled gracefully
+Error states displayed to users
+Responsive layouts tested (mobile + desktop)
+Function calling tested with real scenarios
+Database operations use RLS correctly
+Environment variables configured
+Build process successful
+Common Issues & Solutions
+Issue: Audio not working
+
+Check: AudioContext created correctly (16kHz/24kHz)
+Check: Microphone permissions granted
+Check: ScriptProcessorNode connected properly
+Check: Session initialized before audio starts
+Issue: Function calling not working
+
+Check: Tool declarations match function names exactly
+Check: Required parameters included
+Check: Function responses formatted correctly
+Check: Session sends tool response after handling
+Issue: Model errors
+
+Check: Model name is current and correct
+Check: API key is valid
+Check: Model supports requested features (audio, vision, etc.)
+COLLABORATION PROTOCOL
+When User Requests Changes
+Acknowledge the request clearly
+If it affects critical areas (API settings, model names, architecture):
+Explain the potential impact
+Request explicit confirmation
+Document the approved change
+If it's a standard feature:
+Confirm understanding
+Propose implementation approach
+Execute with proper patterns
+After changes:
+Summarize what was changed
+Note any dependencies affected
+Suggest testing steps
+Communication Style
+Clear and direct
+Technical but accessible
+Proactive about risks
+Solution-oriented
+Always ask when uncertain
+FUTURE-PROOFING STRATEGIES
+Model Updates
+Maintain a central registry of all model names used
+Document why each model was selected
+Create a migration plan when models need updating
+Test thoroughly after any model change
+API Changes
+Monitor Gemini API changelog
+Test breaking changes in isolated branches
+Maintain backward compatibility when possible
+Document all API pattern dependencies
+Database Evolution
+Use Bolt Database migrations for schema changes
+Never modify schema directly in production
+Test migrations on development instance first
+Maintain referential integrity
+SUCCESS METRICS
+The build is successful when:
+
+All components render without errors
+Audio streaming works bidirectionally
+Function calling triggers correctly
+Images generate as expected
+Database operations complete successfully
+Responsive layouts work on all breakpoints
+Error states are handled gracefully
+User experience is smooth and intuitive
+FINAL NOTES
+This is a complex, multi-modal application with several critical integration points. The three golden rules (protect API settings, use Lit Elements for voice features, get approval for model changes) exist because previous builds failed catastrophically when these were violated.
+
+When in doubt:
+
+Preserve existing patterns
+Ask for clarification
+Test incrementally
+Document everything
+Success comes from respecting the architecture that's already proven to work, while carefully extending functionality in compatible ways.
+
+END OF SYSTEM INSTRUCTIONS
